@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div id='app'>
+        <p>
+            <router-link to="/foo">Main으로 이동</router-link>
+            <router-link to="/bar">Login으로 이동</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+
+    <script>
+        const Foo = { template: '<div>foo</div>' }
+        const Bar = { template: '<div>bar</div>' }
+
+        // 2. 라우트를 정의합니다.
+        // 일부 라우트 정의 각 라우트는 컴포넌트에 맵핑되어야합니다.
+        // "컴포넌트"는 `Vue.extend()`를 통해 생성된
+        // 실제 컴포넌트 생성자이거나 컴포넌트 옵션 객체 일 수 있습니다.
+        // 나중에 중첩 된 라우트에 대해 이야기하겠습니다.
+        
+        // 3. 라우터 인스턴스를 생성하고 `routes` 옵션을 전달하십시오.
+        // 여기에 추가 옵션을 전달할 수 있지만, 지금은 간단하게 하겠습니다.
+        const router = new VueRouter({
+            routes : [
+                { path: '/foo', component: Foo },
+                { path: '/bar', component: Bar }
+            ]
+        })
+
+        // 4. 루트 인스턴스를 만들고 마운트하십시오.
+        // 라우터 옵션을 라우터에 삽입하여
+        // 전체 응용 프로그램을 라우터가 인식하도록 하십시오.
+        const app = new Vue({
+            router
+        }).$mount('#app')
+
+    </script>
+</body>
+</html>
