@@ -1,6 +1,11 @@
 # StudyExaple
 
 
+* VueCli
+설치 - npm install vue-cli -global
+프로젝트 생성 - vue init webpack-simple
+프로젝트 Packege.json 생성 - npm install
+Run                       - npm run dev 
 
 
 * Vuejs
