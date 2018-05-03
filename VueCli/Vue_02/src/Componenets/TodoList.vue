@@ -1,7 +1,7 @@
 <template>
     <section>
         <ul>
-            <li v-for="item in todoItems" class="shadow">
+            <li v-for="item in test" class="shadow">
                 <i class="checkBtn fa fa-check" aria-hidden="true"></i>
                 {{item}}
                 <span class="removeBtn" type="buttn" v-on:click="removeItem(item,index)">
@@ -15,24 +15,10 @@
 
 <script>
     export default{
-        data() {
-            return {
-                todoItems:[]
-            }
-        },
-
-        created() {
-            if(localStorage.length > 0 ) {
-                for(var i = 0 ; i <localStorage.length; i++){
-                    this.todoItems.push(localStorage.key(i));
-                }
-            }
-
-        },
+        props : ['test'],
         methods:{
             removeItem (obj,idx) {
-
-                this.todoItems.splice(idx,1);
+                this.todoList.splice(idx,1);
                 localStorage.removeItem(obj);
             }
         }

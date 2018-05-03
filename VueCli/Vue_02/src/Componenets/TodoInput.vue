@@ -18,7 +18,7 @@
             addTodo() {
                 var value = this.newTodoItem;
                 if(value != '' ) {
-                    localStorage.setItem(value,value)
+                    this.$emit('addTodo',value);
                     this.newTodoItem ='';
                 }
             }
